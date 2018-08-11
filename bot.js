@@ -32,8 +32,6 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
 
 
 
-const Discord = require("discord.js")
-const client = new Discord.Client()
 client.on("ready", () => {
 let channel =     client.channels.get("470237074344378368")
 setInterval(function() {
