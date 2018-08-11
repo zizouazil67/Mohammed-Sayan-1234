@@ -9,6 +9,8 @@ const fetchVideoInfo = require('youtube-info');
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 
 const prefix = "!!";
+client.on('guildMemberRemove', member => {
+client.on('guildMemberAdd', member => {
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -280,14 +282,12 @@ For additional help,  `)
 
 
 
-client.on('guildMemberAdd', member => {
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
     client.channels.get('477713932388139053').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
     client.channels.get('477713823357468683').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
 });
 
-client.on('guildMemberRemove', member => {
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
     client.channels.get('477713932388139053').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
