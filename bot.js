@@ -66,6 +66,7 @@ client.on('message', message => {
 
 });
 //الحين انا رح احط تعريف فورتنايت ثاني فوق على اساس انه انت معرفها من قبل وبوريك ايش بصير
+//الحين انا رح احط تعريف فورتنايت ثاني فوق على اساس انه انت معرفها من قبل وبوريك ايش بصير
 client.on('message', message => {
 	let prefix = "!!";
      if(message.content.startsWith(prefix + "fortnite")) {
@@ -104,8 +105,9 @@ message.channel.send(embed);
 console.log(e);
 message.channel.send("** Didn't find that username! **")
 });
-
 }
+});
+
 //هذا هو كود الميوزك بداية كل كود عالاغلب بتيجي كذا
 client.on('message', function(message) {
     const member = message.member;
