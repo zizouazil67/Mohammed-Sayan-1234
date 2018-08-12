@@ -70,7 +70,6 @@ client.on('message', message => {
 client.on('message', message => {
 	let prefix = "!!";
      if(message.content.startsWith(prefix + "fortnite")) {
-const Fortnite = require('fortnite');
 //طبعا هذا تعريف  لكود بربط الكود مع اللعبة اعتقد
 //!testing
 let args = message.content.split(" ").slice(1)
