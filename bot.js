@@ -6,8 +6,6 @@ const fs = require('fs');
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
 
-const Fortnite = require('fortnite');
-const ft = new Fortnite('1010ab16-8f67-414a-a0b5-13d9e8b93954');
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 
 const prefix = "!!";
@@ -26,7 +24,6 @@ var skipReq = 0;
 var skippers = [];
 var now_playing = [];
 ////////////////////////////////////////////////////////////////////////////
-//هذا كود اساسي ولا ما ادري ايش
 client.on('ready', () => {});
 var download = function(uri, filename, callback) {
     request.head(uri, function(err, res, body) {
@@ -37,77 +34,6 @@ var download = function(uri, filename, callback) {
     });
 };
 
-//بداية الكود
-client.on('message', message => {
-     if(message.content.startsWith(prefix + "clear")) {
-         var args = message.content.split(" ").slice(1);
- if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You need MANAGE_MESSAGES permission noob');
-  if (!args[0]) return message.channel.send('You didn\'t provide any number!!!');
-
-  message.channel.bulkDelete(args[0]).then(() => {
-    const embed = new Discord.RichEmbed()
-      .setColor(0xF16104)
-      .setDescription(`Cleared ${args[0]} messages.`);
-    message.channel.send({ embed });
-
-    const actionlog = message.guild.channels.find('name', 'logs');
-
-    if (!actionlog) return message.channel.send('Can\'t find action-log channel. Are you sure that this channel exists and I have permission to view it? **CANNOT POST LOG.**');
-    const embedlog = new Discord.RichEmbed()
-      .setDescription('~Purge~')
-      .setColor(0xF16104)
-      .addField('Purged By', `<@${message.author.id}> with ID ${message.author.id}`)
-      .addField('Purged in', message.channel)
-      .addField('Time', message.createdAt);
-    actionlog.send(embedlog);
-   
-  });
-};
-
-});
-//الحين انا رح احط تعريف فورتنايت ثاني فوق على اساس انه انت معرفها من قبل وبوريك ايش بصير
-//الحين انا رح احط تعريف فورتنايت ثاني فوق على اساس انه انت معرفها من قبل وبوريك ايش بصير
-client.on('message', message => {
-	let prefix = "!!";
-     if(message.content.startsWith(prefix + "fortnite")) {
-//طبعا هذا تعريف  لكود بربط الكود مع اللعبة اعتقد
-//!testing
-let args = message.content.split(" ").slice(1)
-if(!args[0]) return message.channel.send(`**${prefix}fortnite <username> <platform (pc, xbnl, psn)>**`);
-let username = args[0];
-let platform = args[1] || "pc";
-let data = ft.getInfo(username, platform).then(data => {
-
-let stats = data.lifetimeStats;
-let kills = stats.find(s => s.stat == "kills");
-let wins = stats.find(s => s.stat == "wins");
-let kd = stats.find(s => s.stat == "kd");
-let mplay = stats.find(s => s.stat == "matchesPlayed");
-let tplay = stats.find(s => s.stat == "timePlayed");
-let score = stats.find(s => s.stat == "score");
-let top25s = stats.find(s => s.stat == "top25s");
-let url = `https://fortnitetracker.com/profile/${data.platform}/${data.username}`
-let embed = new Discord.RichEmbed ()
-.setAuthor(data.username)
-.setColor("#ff6a00")
-.addField("Kills", kills.value, true)
-.addField("Wins", wins.value, true)
-.addField("K/D", kd.value, true)
-.addField("Matches Played", mplay.value, true)
-.addField("Time Played", tplay.value, true)
-.addField("Score", score.value, true)
-.addField("Top 25s", top25s.value, true)
-.addField("More Info", url, true)
-message.channel.send(embed);
-
-}).catch(e => {
-console.log(e);
-message.channel.send("** Didn't find that username! **")
-});
-}
-});
-
-//هذا هو كود الميوزك بداية كل كود عالاغلب بتيجي كذا
 client.on('message', function(message) {
     const member = message.member;
     const mess = message.content.toLowerCase();
