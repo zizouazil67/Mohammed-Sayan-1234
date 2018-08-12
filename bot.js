@@ -66,8 +66,9 @@ client.on('message', message => {
 
 });
 //الحين انا رح احط تعريف فورتنايت ثاني فوق على اساس انه انت معرفها من قبل وبوريك ايش بصير
-//نهايته
-if(message.content.startsWith(prefix+"fortnite")) {
+client.on('message', message => {
+	let prefix = "!!";
+     if(message.content.startsWith(prefix + "fortnite")) {
 const Fortnite = require('fortnite');
 //طبعا هذا تعريف  لكود بربط الكود مع اللعبة اعتقد
 //!testing
