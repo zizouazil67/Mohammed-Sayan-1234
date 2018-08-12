@@ -54,7 +54,7 @@ if(!xp[message.author.id]){
  
    let lvlEmbed = new Discord.RichEmbed()
    .setAuthor(message.author.username)
-   .setColor(red)
+   .setColor(purple)
    .addField("Level", curlvl, true)
    .addField("XP", curxp, true)
    .setFooter(`${difference} XP til level up`, message.author.displayAvatarURL);
@@ -88,7 +88,7 @@ client.on('message', async message =>{
     xp[message.author.id].level = curlvl + 1;
     let lvlup = new Discord.RichEmbed()
     .setTitle("Level Up!")
-    .setColor(red)
+    .setColor(purple)
     .addField("New Level", curlvl + 1);
 
     message.channel.send(lvlup).then(msg => {msg.delete(5000)});
