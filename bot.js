@@ -71,7 +71,7 @@ client.on('message', async message =>{
     xp[message.author.id].level = curlvl + 1;
     let lvlup = new Discord.RichEmbed()
     .setTitle("Level Up!")
-    .setColor(purple)
+    .setColor(RANDOM)
     .addField("New Level", curlvl + 1);
 
     message.channel.send(lvlup).then(msg => {msg.delete(5000)});
