@@ -14,23 +14,6 @@ client.on('ready', () => {
 
 ```
 
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('discord.gg')){
-        message.delete()
-      message.channel.sendMessage("", {embed: {
-        title: "لا تنشر",
-        color: 0x06DF00,
-        description: "يمنع النشر في هذا السيرفر",
-        footer: {
-          text: "By MohamedSayan"
-        }
-      }}).then(msg => {msg.delete(3000)});
-                          }
-
-     
-});
-
 var servers = [];
 var queue = [];
 var guilds = [];
@@ -51,6 +34,23 @@ var download = function(uri, filename, callback) {
         request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
     });
 };
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('discord.gg')){
+        message.delete()
+      message.channel.sendMessage("", {embed: {
+        title: "لا تنشر",
+        color: 0x06DF00,
+        description: "يمنع النشر في هذا السيرفر",
+        footer: {
+          text: "By MohamedSayan"
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
+
+     
+});
 
 client.on('ready', function(){
   require("./antispam.js")(client, function(message){
