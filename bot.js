@@ -33,6 +33,16 @@ var download = function(uri, filename, callback) {
     });
 };
 
+client.on('ready', function(){
+  require("./antispam.js")(client, function(message){
+     message.delete().then(yumz => {
+     message.channel.send(`stop spamming kid <@${message.author.id}>`).then(spammer => {
+     spammer.delete(2000)
+   });
+   });
+  });
+});
+
 client.on('message', message => {
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
