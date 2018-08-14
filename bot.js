@@ -72,7 +72,7 @@ client.on('message', message => {
 });
 
 
-console.log('mariam ra7t tmot al nas');
+console.log('By MohamedSayan');
 client.on('ready', () => {
   console.log(`im redey`);
 });
