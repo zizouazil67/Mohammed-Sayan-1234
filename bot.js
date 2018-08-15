@@ -2975,6 +2975,10 @@ client.on("guildMemberAdd", member => {
       }
       });
 
+client.on("guildMemberAdd", function(member) {
+    let role = member.guild.roles.find("name", "-=- Member -=-");
+    member.addRole(role).catch(console.error);
+});
 
 
 
