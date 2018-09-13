@@ -208,7 +208,7 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
 
 var port = process.env.PORT || 3000;
 
-const bot = new Discord.Client({disableEveryone: false, autoReconnect:true});
+const client = new Discord.Client({disableEveryone: false, autoReconnect:true});
 bot.commands = new Discord.Collection();
 
 fs.readdir("./cmds/", (err, files) => {
