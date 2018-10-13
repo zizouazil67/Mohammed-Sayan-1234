@@ -252,7 +252,7 @@ client.on('ready', () => {
   console.log(`|  Users Size ${client.users.size}  |`);
   console.log(`| Guilds Size ${client.guilds.size} |`);
   console.log(`|===================================|`);
-  console.log(`| Created By @$~¤Super_Man¤~$#9700  |`);
+  console.log(`| Created By Mr.SOKA  |`);
   console.log(`|===================================|`);
   console.log(`|        Over Bot Log By You !      |`);
   console.log(`|===================================|`);
@@ -443,7 +443,7 @@ client.on('message', message => {
   let embed = new Discord.RichEmbed()
 .setAuthor(message.author.username)
 .setColor("#9B59B6")
-.addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/NgdvJy3**")
+.addField(" ** :gear: Server Support :gear: **" , "  ** https://discord.gg/ArGwWfH**")
   
   
 message.channel.sendEmbed(embed);
